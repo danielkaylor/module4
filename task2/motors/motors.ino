@@ -37,10 +37,8 @@ void loop() {
   prevprevSensorVal = prevSensorVal;
   prevSensorVal = sensorVal;
   sensorVal = analogRead(34);
-  Serial.print("Prev: ");
-  Serial.println(prevSensorVal);
-  Serial.print("Current: ");
-  Serial.println(sensorVal);
+
+  // Had to add extra logic to deal with problems in reading sensor value
   if (sensorVal == 0 && prevSensorVal == 0 && prevprevSensorVal == 0) {
   
     myStepper.step(stepsPerRevolution);
@@ -53,6 +51,7 @@ void loop() {
 
 void rotate10() {
 
+  // limit Servo movement from 0-90 degrees 
   if (servoPos == 90)
     moveForward = false;
   if (servoPos == 0 )
@@ -62,12 +61,15 @@ void rotate10() {
     servoPos += 5;
   else
     servoPos -= 5;
+
+  // Change from linear to cosine interpolation 
   float cosVal = cos(myMap(servoPos, 0.0, 90.0, 0.0, M_PI));
   float interpolatedVal = myMap(cosVal, -1.0, 1.0, 0.0, 90.0);
   myservo2.write(interpolatedVal);
   myservo.write(90-interpolatedVal);
 }
 
+// Map function for floats 
 float myMap(float x, float in_min, float in_max, float out_min, float out_max) {
   return ((float)x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
