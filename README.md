@@ -20,13 +20,15 @@ The goal of our project was to use 4 motors to create an artistic piece. One of 
 
 We made wings by using paper, popsicle sticks, hot glue, and paint. These were attached to the fans of the servo motors.
 
-
+![Wings](/task2/documentation/back_view.jpg)
 
 The antennas were made using popsicles and pipe cleaners. There was not an easy to attach the antennas to the stepper motors, so we used a small piece of a popsicle stick and cut a hole through it to stick to the motor. Then, it became a base for our antenna.
 
-
+![Antennas](/task2/documentation/top_down.jpg)
 
 The teddy bear was just a build-a-bear we had. We put the wings inside the backs and the antennas inside its head. We inserted the DIY force resistance sensor we made in module 3 inside the hand of the bear, so in order to make the wings and antennas move, you have to squeeze its hand! We had to cut it open to insert the motors, and apparently, all build-a-bears have a heart inside!
+
+![Sensor](/task2/documentation/sensor_in_arm.jpg)
 
 <a name="code"/> 
 
@@ -51,8 +53,11 @@ We used the force resistance motor to move the wings and antennas; however, we w
 
 The hardware for it was not too bad. There were some complications finding the correct GPIO pins to use, but aside from that, wiring everything up was relatively simple; however, we had a lot of trouble with the power source. An ESP32 powered by my laptop did not have enough voltage to power two stepper motors, and we did not realize that mistake for a long time. We assumed that that we had problems with the pins, but we tried using a power board to power our ESP32, and it was strong enough to move all four of our motors.
 
+![Sensor](/task2/documentation/sensor_connects.jpg)
 
 The power board we used below.
+
+![Sensor](/task2/documentation/project_board.jpg)
 
 <a name="demo"/> 
 
